@@ -1,0 +1,29 @@
+.App {
+  text-align: center;
+}
+
+.user-search-container {
+  margin-left: 30%;
+  margin-right: 30%;
+  margin-top: 20px;
+}
+
+.highlighted {
+  background-color: #f0f0f0
+}
+
+.list-item-wrapper {
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.no-outline {
+  outline: none;
+}
+.list-item {
+  border-bottom: 1px dotted;
+}
+
+.pf-c-select__menu-item:hover {
+  background-color: unset !important
+}
