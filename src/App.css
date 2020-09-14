@@ -27,3 +27,26 @@
 .pf-c-select__menu-item:hover {
   background-color: unset !important
 }
+
+
+/* Keypress */
+
+.comp-b, .comp-a {
+  height: 200px;
+  border: solid;
+  margin: 15px;
+  margin-left: 30%;
+  margin-right: 30%;
+}
+
+.toggle-a {
+  background-color: teal;
+}
+
+.toggle-b {
+  background-color: red;
+}
+
+.component-events {
+  margin: 20px;
+}

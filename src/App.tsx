@@ -11,7 +11,6 @@ function App() {
   const [selectedUser, setSelectedUser] = useState<IUser>({});
   const onSelect = useCallback((user) => {
     setSelectedUser(user);
-    console.log(user)
   },[])
   return (
     <div className="App">

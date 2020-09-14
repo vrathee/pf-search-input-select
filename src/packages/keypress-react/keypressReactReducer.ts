@@ -1,5 +1,6 @@
 import keypress from "keypress.js";
 import find from "lodash/find";
+import { getUUID } from "./utils";
 
 export interface IAction<T, P> {
     type: T;
@@ -58,12 +59,10 @@ export function userKeypressReactReducer(state: IKeyPressState, action: ISAction
             }
             const event = action.payload.events[0];
             const component = state[action.payload.uuid];
-            component.listener.simple_combo(event.keyCombo, action.payload.callback);
-
             const existingEvent = find(component.events, e => e.keyCombo === event.keyCombo);
-            if (existingEvent) {
-                existingEvent.keyDescription.push(event.keyDescription[0]);
-            } else {
+
+            if (!existingEvent) {
+                component.listener.simple_combo(event.keyCombo, action.payload.callback);
                 const newEvent  = {
                     keyCombo: event.keyCombo,
                     keyDescription: [event.keyDescription[0]]
@@ -85,7 +84,7 @@ export function userKeypressReactReducer(state: IKeyPressState, action: ISAction
 }
 
 export function registerComponent(dispatch: KeypressReducerDispatchType, componentDetails: IComponentDetails): string {
-    const uniqueId = new Date().getTime();
+    const uniqueId = getUUID()
     const newListener = new keypress.Listener();
     dispatch({
         type: ISActions.registerComponent,
